@@ -1,0 +1,23 @@
+<div>
+
+    <div class="listitem__panel__label" style="float:left" >
+        <a class="listitem__panel__value" ng-hide='listitemNameEditting' href="/#/" ng-click='toggleNameEdit()'>{{item.Name}}</a>
+        <input ng-show='listitemNameEditting' type="text" style="width:160px" ng-model="item.Name" ng-blur='saveAndDisableEdit(item)'  />
+    </div>
+
+    <div style="float:right">
+        <span ng-hide='listitemEditting'><a class="listitem__panel__value" href="/#/" ng-click='toggleEdit()'>${{item.Odds | number:2}}</a></span>
+        <span ng-show='listitemEditting'>
+             $ <input type="number" step="any" style="width:40px" ng-model="::item.Odds" ng-model-options="{ updateOn: 'blur' }" />
+        </span>
+        <input type="button" style="width:60px" value="Scratch" ng-click='remove(item)' />
+    </div>
+
+    <div style="clear:both"></div>
+    <div ng-show='listitemEditting' class='listitem__panel__reason collapse-show'>
+        Reason:<br>
+        <textarea rows="2" style="width:100%" ng-model="reason" ></textarea>
+        <input type="button" value="Update" ng-click='saveAndDisableEdit()'>
+        <input type="button" value="Cancel" ng-click='toggleEdit()'>
+    </div>
+</div>

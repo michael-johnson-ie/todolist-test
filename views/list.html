@@ -1,0 +1,43 @@
+<h3>Open Market</h3>
+
+<div style="float:left">
+    <div class="listitem collapse fade" ng-repeat="item in odds.oddsList | orderBy: 'Odds' | filter:{Gorn:false}">
+        <div class="listitem__panel--required">
+          <listitem item="item" save="odds.save(item, reason)" remove="odds.scratch(item)"></listitem>
+        </div>
+    </div>
+
+    <form name="addOddsForm">
+    <div class="listitem">
+        <div class="listitem__panel--entry">
+
+            <div style="float:left" >
+                <input type="text" style="width:200px" ng-model="odds.newItem.Name" required /> 
+            </div>
+
+            <div style="float:right">
+                $ <input type="number" step="any" style="width:40px" ng-model="odds.newItem.Odds" required /> 
+                <input type="button" ng-disabled="addOddsForm.$invalid" style="width:60px" value="Add" ng-click='odds.add()'>
+            </div>
+
+        </div>
+    </div>
+    </form>
+
+    <h3>Scratched</h3>
+    <div class="listitem collapse fade" ng-repeat="item in odds.oddsList | orderBy: 'Name' | filter:{Gorn:true}">
+        <div class="listitem__panel--scratched">
+          <scratcheditem item="item" remove="odds.unscratch(item)" delete="odds.delete(item)" ></scratcheditem>
+        </div>
+    </div>
+</div>
+
+<div style="float:left">
+    <div class="listitem collapse fade" ng-repeat="item in odds.blogs | orderBy: '-Date' | filter:{Deleted:!true}">
+        <div class="blogitem__panel">
+          <blogitem item="item" delete="odds.deleteBlog(item)" ></blogitem>
+        </div>
+    </div>
+</div>
+
+

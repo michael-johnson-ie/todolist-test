@@ -1,0 +1,28 @@
+    .todo-list {
+        font-family: Arial;
+    }
+    .todo-list__title {
+        font-size: 20px;
+    }
+
+    .todo-list__add {
+
+    }
+    .todo-list__item--todo {
+        height: 20px;
+        padding: 10px;
+        font-size:16px;
+        background-color: lightblue;
+        color: #333;
+        width: 500px;
+        margin-bottom:5px;
+    }
+    .todo-list__item--done {
+        height: 20px;
+        padding: 10px;
+        font-size:16px;
+        background-color: #999;
+        color: #fff;
+        width: 500px;
+        margin-bottom:5px;
+    }

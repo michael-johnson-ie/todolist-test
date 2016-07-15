@@ -1,0 +1,13 @@
+<div>
+
+    <div class="blogitem__panel__content" >
+        {{item.Text}}
+
+        <div class="blogitem__panel__date" >
+            {{item.Date | date:'d/M/yy h:mm a'}}
+        </div>
+
+    </div>
+    <div class="blogitem__panel__close" ><a href="/#/" ng-click="delete()">X</a></div>
+    <div style="clear:both">
+</div>

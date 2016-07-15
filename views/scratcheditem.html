@@ -1,0 +1,13 @@
+<div>
+
+    <div class="listitem__panel__label" style="float:left" >
+        {{item.Name}}
+    </div>
+
+    <div style="float:right">
+        <span>${{item.Odds}}</span>
+        <input type="button" value="Unscratch" ng-click='remove(item)' />
+        <input type="button" value="X" ng-click='delete()' />
+    </div>
+
+</div>

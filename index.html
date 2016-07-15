@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <meta charset="utf-8"/>
+  <title>MJ's Todo List</title>
+</head>
+<body>
+
+  <div class="todo-list" ng-app="todo" data-todo-list>
+    <h3 class="todo-list__title">To do...</h3>
+    <div class="todo-list__item--todo" data-ng-repeat="item in tlc.list | filter: {isDone:false}">
+      <span>{{item.task}}</span>
+      <button data-ng-click="tlc.setAsDone(item)">Done!</button>
+      <button data-ng-click="tlc.delete(item)">Delete</button>
+    </div>
+    <div class="todo-list__item--todo">
+        <input type="text" data-ng-model="tlc.newTask" >
+        <button data-ng-click="tlc.addToList()">Add to list</button>
+    </div>
+    <h3 class="todo-list__title">Done like a dinner..</h3>
+    <div class="todo-list__item--done" data-ng-repeat="item in tlc.list | filter: {isDone:true}">
+      <span>{{item.task}}</span>
+      <button data-ng-click="tlc.delete(item)">Delete</button>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="js/directives.js"></script>
+  <script type="text/javascript" src="js/controllers.js"></script>
+  <script type="text/javascript" src="js/services.js"></script>
+</body>
+</html>
